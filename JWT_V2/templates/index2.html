@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Clark Medina and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.83.1">
+    <title>JWT Generator</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap core CSS -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+
+    <!-- Custom styles -->
+    <style>
+      body {
+        font-family: 'Roboto', sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        background: linear-gradient(to right, #6a11cb, #2575fc);
+        color: #000; /* Changed to black */
+      }
+
+      .form-signin {
+        background: rgba(255, 255, 255, 0.3); /* Increased opacity for better contrast */
+        border-radius: 10px;
+        backdrop-filter: blur(10px);
+        padding: 20px;
+        max-width: 400px;
+        width: 100%;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .form-signin .header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      .form-signin .header img {
+        width: 50px; /* Adjust the size as needed */
+        height: auto;
+        margin-right: 10px;
+      }
+
+      .form-signin h1 {
+        margin: 0;
+        font-weight: 500;
+        font-size: 1.5rem;
+        color: #000; /* Changed to black */
+      }
+
+      .form-floating {
+        margin-bottom: 15px;
+      }
+
+      .form-control {
+        background: rgba(255, 255, 255, 0.8);
+        border: 1px solid rgba(0, 0, 0, 0.3);
+        color: #000; /* Changed to black */
+      }
+
+      .form-control::placeholder {
+        color: rgba(0, 0, 0, 0.7); /* Changed to dark gray */
+      }
+
+      .form-control:focus {
+        background: rgba(255, 255, 255, 0.9);
+        color: #000; /* Changed to black */
+      }
+
+      .btn-primary {
+        background-color: #2575fc;
+        border-color: #2575fc;
+      }
+
+      .btn-primary:hover {
+        background-color: #1a5bbf;
+        border-color: #1a5bbf;
+      }
+
+      .text-muted {
+        color: rgba(0, 0, 0, 0.7) !important; /* Changed to dark gray */
+      }
+    </style>
+  </head>
+  <body class="text-center">
+
+    <main class="form-signin">
+      <form action="/generate_token" method="POST">
+        <div class="header">
+          <img src="https://jwt.io/img/pic_logo.svg" alt="Company Logo" >
+          <h1 class="h3 mb-3 fw-normal">JWT Generator</h1>
+        </div>
+
+        <div class="form-floating">
+          <input type="string" name="carrier_code" class="form-control" id="floating_carrier" placeholder="Carrier Code">
+          <label for="floating_carrier">Carrier Code</label>
+        </div>
+
+        <div class="form-floating">
+          <input type="string" name="iss" class="form-control" id="floating_iss" placeholder="Issuer">
+          <label for="floating_iss">Issuer</label>
+        </div>
+
+        <div class="form-floating">
+          <input type="string" name="sub" class="form-control" id="floating_sub" placeholder="Subject">
+          <label for="floating_sub">Subject</label>
+        </div>
+
+        <div class="form-floating">
+          <input type="integer" name="exp" class="form-control" id="floating_exp" placeholder="Expiration Timestamp">
+          <label for="floating_exp">Expiration Timestamp</label>
+        </div>
+
+        <div class="form-floating">
+          <input type="integer" name="iat" class="form-control" id="floating_iat" placeholder="Issued At Timestamp">
+          <label for="floating_iat">Issued At Timestamp</label>
+        </div>
+
+        <div class="form-floating">
+          <textarea name="private_key" class="form-control" id="floating_private_key" placeholder="Private Key" style="height: 100px;"></textarea>
+          <label for="floating_private_key">Private Key</label>
+        </div>
+
+        <div class="form-floating">
+          <select name="algorithm" class="form-control" id="floating_algorithm">
+            <option value="RS256">RS256</option>
+            <option value="HS256">HS256</option>
+          </select>
+          <label for="floating_algorithm">Algorithm</label>
+        </div>
+
+        <div class="checkbox mb-3">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div>
+
+        <button class="w-100 btn btn-lg btn-primary" type="submit">Generate Token</button>
+        <p class="mt-5 mb-3 text-muted">&copy; ERPIS 2024</p>
+      </form>
+    </main>
+
+    <!-- Bootstrap JS and dependencies (Popper.js and jQuery) -->
+    <script src="/static/js/bootstrap.bundle.min.js" integrity="sha384-U1+9MEq6P/0tqNQ0g+Fj9QY8xBquYdbQn8itTKvttElZvv73dpouXhgmhB8E0pZT" crossorigin="anonymous"></script>
+  </body>
+</html>
